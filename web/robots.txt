@@ -1,0 +1,25 @@
+# ===================================
+# CREATED: 10/08/2016, 13:00
+# ===================================
+
+# ===================================
+# NO INDEX FOR SITES
+# ===================================
+
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /admin/
+Disallow: /views/
+
+# ===================================
+# DISALOWED SPIDERS
+# ===================================
+
+User-agent: WebReaper
+User-agent: WebCopier
+User-agent: Offline Explorer
+User-agent: HTTrack
+User-agent: Microsoft.URL.Control
+User-agent: EmailCollector
+User-agent: penthesilea
+Disallow: /

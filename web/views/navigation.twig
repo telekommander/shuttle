@@ -1,0 +1,20 @@
+
+<div class="top-bar">
+    <div class="top-bar-left">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li class="menu-text">SHUTTLE | Slim 3 Kickstart</li>
+            <li><a href="{{ base_url() }}">Home</a></li>
+            <li><a href="login">Login</a></li>
+            <li><a href="register">Register</a></li>
+        </ul>
+    </div>
+
+    {% if currentuser %}
+    <div class="top-bar-right">
+        <ul class="dropdown menu" data-dropdown-menu>
+            <li><a href="#">Hello {{ currentuser.username }}</a></li>
+        </ul>
+    </div>
+    {% endif %}
+
+</div>

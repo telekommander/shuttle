@@ -1,0 +1,42 @@
+{
+    "app":{
+        "app": {
+            "url": "http://shuttle.local",
+            "hash": {
+                "algo": "PASSWORD_BCRYPT",
+                "cost": 10
+            }
+        },
+        "auth": {
+            "session":  "user_id",
+            "group":    "group_id",
+            "remember": "user_r"
+        },
+        "settings": {
+            "determineRouteBeforeAppMiddleware": false,
+            "displayErrorDetails":               true,
+            "view": {
+                "template_path":    "views",
+                "twig": {
+                    "cache":        "../storage/cache",
+                    "debug":        true,
+                    "auto_reload":  true
+                }
+            },
+            "logger": {
+                "name":         "app",
+                "path":         "../storage/log/app.log"
+            },
+            "database" : {
+                "driver":       "mysql",
+                "host":         "localhost",
+                "database":     "",
+                "username":     "",
+                "password":     "",
+                "charset":      "utf8",
+                "collation":    "utf8_unicode_ci",
+                "prefix":       ""
+            }
+        }
+    }
+}
