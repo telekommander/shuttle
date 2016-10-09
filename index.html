@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Shuttle by telekommander</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/telekommander/shuttle">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/telekommander/shuttle/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/telekommander/shuttle/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Shuttle</h1>
+          <p>Slim Framework 3 based kickstart mvc project with Twig &amp; Monolog.</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/telekommander">telekommander</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1>
+<a id="shuttle--slim-3-kickstart" class="anchor" href="#shuttle--slim-3-kickstart" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SHUTTLE | Slim 3 Kickstart</h1>
+
+<p>This is a simple kickstart project fork from 
+akrabat/slim3-skeleton
+based on
+mrcoco/slim3-eloquent-skeleton
+that includes 
+scaffold tool, migrations, auth, Twig, Flash messages, eloquent ORM and Monolog.</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>Description comming soon</li>
+</ul>
+
+<h3>
+<a id="create-your-project" class="anchor" href="#create-your-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create your project:</h3>
+
+<pre><code>$ composer create-project -n -s dev telekommander/shuttle yourapp
+</code></pre>
+
+<h3>
+<a id="-or-clone-and-run" class="anchor" href="#-or-clone-and-run" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>... or clone and run:</h3>
+
+<pre><code>$ composer install
+</code></pre>
+
+<h3>
+<a id="regenerate-composer-autoloader" class="anchor" href="#regenerate-composer-autoloader" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>(Re)generate composer autoloader</h3>
+
+<pre><code>$ composer dump-autoload -o
+</code></pre>
+
+<h4>
+<a id="run-it" class="anchor" href="#run-it" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Run it:</h4>
+
+<ol>
+<li><code>$ cd yourapp</code></li>
+<li>Change database settings <code>config/config.json</code>
+</li>
+<li><code>$ php phpmig migrate</code></li>
+<li><code>$ php -S 0.0.0.0:8888 -t web web/index.php</code></li>
+<li>Browse to <code>http://localhost:8888</code> 
+or</li>
+<li>Browse to <code>http://localhost/yourapp/</code> without step 4 above</li>
+</ol>
+
+<h4>
+<a id="key-directories" class="anchor" href="#key-directories" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Key directories</h4>
+
+<ul>
+<li>
+<code>app</code>: Application code</li>
+<li>
+<code>app/src</code>: All class files within the <code>App</code> namespace</li>
+<li>
+<code>storage/cache/twig</code>: Twig's autocreated cache files</li>
+<li>
+<code>storage/log</code>: Log files</li>
+<li>
+<code>web</code>: Webserver root</li>
+<li>
+<code>vendor</code>: Composer dependencies</li>
+<li>
+<code>web/views</code>: Twig template files</li>
+<li>
+<code>web/assets</code>: Frontend files</li>
+</ul>
+
+<h4>
+<a id="key-files" class="anchor" href="#key-files" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Key files</h4>
+
+<ul>
+<li>
+<code>web/index.php</code>: Entry point to application</li>
+<li>
+<code>app/config.json</code>: Configuration</li>
+<li>
+<code>app/core/dependencies.php</code>: Services for Pimple</li>
+<li>
+<code>app/core/middleware.php</code>: Application middleware</li>
+<li>
+<code>app/core/routes.php</code>: All application routes are here</li>
+<li>
+<code>app/src/Action/HomeController.php</code>: Action class for the home page</li>
+<li>
+<code>app/src/Action/LoginControllerAction.php</code>: Action class for the login/logout page</li>
+<li>
+<code>web/views/home.twig</code>: Twig template file for the home page</li>
+</ul>
+
+<h4>
+<a id="cli-tools" class="anchor" href="#cli-tools" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>CLI Tools</h4>
+
+<ul>
+<li>Currently there are 3 supported commands:</li>
+<li><code>php cli.php create:action MyActionClassName</code></li>
+<li><code>php cli.php create:middleware MyMiddlewareClassName</code></li>
+<li><code>php cli.php create:model MyModelClassName</code></li>
+<li><code>php cli.php create:scaffold MyModuleName</code></li>
+</ul>
+
+<h4>
+<a id="migration" class="anchor" href="#migration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Migration</h4>
+
+<ul>
+<li>Migrate all data: <code>php cli.php migrate</code>
+</li>
+<li>Confirmation of status: <code>php cli.php status</code>
+</li>
+<li>Creating migration file: <code>php cli.php generate [MigrationName]</code>
+</li>
+<li>Execution of migration: <code>php cli.php migration</code>
+</li>
+<li>I one back: <code>php cli.php rollback</code>
+</li>
+<li>Return all: <code>php cli.php rollback -t 0</code>
+</li>
+<li>Go back to the time of completion of the specified MigrationID: <code>php cli.php rollback -t [MigrationID]</code>
+</li>
+<li>Only specified MigrationID the migration/roll back: <code>php cli.php [up | down] [MigrationID]</code>
+</li>
+</ul>
+
+<h5>
+<a id="demo-user" class="anchor" href="#demo-user" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Demo User:</h5>
+
+<ol>
+<li>
+<code>admin</code> username: <code>admin@slim.dev</code> password: <code>password</code> </li>
+<li>
+<code>moderator</code> username: <code>moderator@slim.dev</code> password: <code>password</code> </li>
+<li>
+<code>user</code> username: <code>user@slim.dev</code> password: <code>password</code> </li>
+</ol>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
