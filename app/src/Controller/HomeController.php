@@ -11,18 +11,16 @@ use App\Validation\Validator;
  * Class HomeController
  * @package App\Controller
  */
-class HomeController extends Controller
+final class HomeController extends AbstractController
 {
-    public function dispatch()
+    public function dispatch($request, $response, $params)
     {
-        // $examples = $this->get('model.example')->find();
-        // print_r($this->request);
-        $this->get('logger')->info("Example Homepage action dispatched");
+        $this->logger->info("Example Homepage action dispatched");
         $acl        = new \App\Helper\Acl;
-        return $this->render('home.twig', array(
+        return $this->view->render($response, "home.twig", [
             'user'          => User::all(),
             'currentuser'   => $acl->profile()
-        ));
+        ]);
     }
 
     public function dashboard()

@@ -7,7 +7,21 @@ $container['view'] = function ($c) {
     $settings = $c->get('settings');
     $view = new \Slim\Views\Twig($settings['view']['template_path'], $settings['view']['twig']);
     $view->addExtension(new Slim\Views\TwigExtension($c->get('router'), $c->get('request')->getUri()));
+    $view->addExtension(new \App\Util\TwigExtension(
+        $c['router'],
+        $c['request']->getUri(),
+        $c['debugger']
+    ));
+
     $view->addExtension(new Twig_Extension_Debug());
+
+    if(App\Helper\Acl::isLogged()) {
+        $view->getEnvironment()->addGlobal("logged", "no");
+        $view->getEnvironment()->addGlobal("user", $c->get('user'));
+    }
+
+    $view->getEnvironment()->addGlobal("site", $c->get('site'));
+    $view->getEnvironment()->addGlobal("debug", $settings['mode']);
 
     return $view;
 };
@@ -85,13 +99,21 @@ $container['flash'] = function ($c) {
 };
 
 // DATABASE
-use Illuminate\Database\Capsule\Manager as Capsule;
+$container['db'] = function ($c) {
+    $settings = $c->get('settings')['database'];
+    return new \App\Util\EloquentService($settings);
+};
 
-$settings = $container->get("settings");
-$capsule = new Capsule;
-$capsule->addConnection($settings["database"]);
-$capsule->setAsGlobal();
-$capsule->bootEloquent();
+// MAILER
+$container["mailer"] = function ($c) {
+    $settings = $c->get("settings")["mail"];
+    $mailer = new \App\Util\SwiftMailerService(
+        $c->get("settings")["mode"],
+        $settings["transport"],
+        $settings["options"]
+    );
+    return $mailer;
+};
 
 // MONOLOG
 $container['logger'] = function ($c) {
@@ -114,3 +136,24 @@ $container['session'] = function ($c) {
 $container['App\Controller\Admin'] = function ($c) {
     return new App\Controller\Admin($c->get('view'), $c->get('logger'), $c->get('session'));
 };
+
+// DEBBUGER
+$container['debugger'] = function ($c) {
+    return new \App\Util\DebuggerService(
+        $c->get('settings')['mode'],
+        $c->get('db')->getConnection(),
+        $c->get('mailer')->getMailer(),
+        $c->get('logger')
+    );
+};
+$container->get('debugger');
+
+foreach (glob( __DIR__ . "/../src/Controller/*.php") as $filename)
+{
+    $ctrl = basename($filename, ".php");
+    $type = '\\App\\Controller\\' . $ctrl;
+    $field = str_replace('\App\Controller','App',$type);
+    $container[$field] = function ($c) use($type) {
+        return new $type($c);
+    };
+}

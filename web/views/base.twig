@@ -33,5 +33,12 @@
     </script>
     {% block javascript %}{% endblock %}
 
+    {% if debug == 'dev' %}
+        {% include "debugbar.twig" %}
+    {% endif %}
+
+</body>
+</html>
+<!-- WE ARE DONE -->
 </body>
 </html>

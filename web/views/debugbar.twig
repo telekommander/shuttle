@@ -1,0 +1,31 @@
+{#
+ * eflat
+ * FILE:        debugbar
+ * DESCRIPTION: 
+ * USER:        Thomas <mail@lokalnetz.com>
+ * DATE:        15.11.2016
+ * TIME:        21:48            
+#}
+
+    <!-- BEGIN DEBUGBAR -->
+
+    <style>
+        {{ debug_css() }}
+        /* FIX FOR VENDOR */
+        .phpdebugbar-fa,
+        div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-database:before,
+        div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-duration:before,
+        div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-memory:before,
+        div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-row-count:before,
+        div.phpdebugbar-widgets-sqlqueries span.phpdebugbar-widgets-stmt-id:before {
+            font-family: FontAwesome;
+        }
+    </style>
+
+    <script type="text/javascript">
+        {{ debug_js() }}
+    </script>
+
+    {{ debug_bar() }}
+
+    <!-- END DEBUGBAR -->

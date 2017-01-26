@@ -24,13 +24,15 @@
         "slim/twig-view":               "^1.1",
         "slim/flash":                   "^0.1",
         "slim/csrf":                    "^0.5",
-        "martynbiz/slim3-controller":   "^0.0.0",
         "phpmailer/phpmailer":          "^5.2",
         "monolog/monolog":              "^1.13",
         "illuminate/database":          "^5.1",
         "davedevelopment/phpmig":       "^1.2",
         "alexgarrett/violin":           "^2.2",
-        "carlosocarvalho/simple-input": "^1.0"
+        "illuminate/events":            "^5.2",
+        "carlosocarvalho/simple-input": "^1.0",
+        "maximebf/debugbar":            "^1.11",
+        "swiftmailer/swiftmailer":      "^5.4"
     },
     "scripts": {
         "post-update-cmd": [
