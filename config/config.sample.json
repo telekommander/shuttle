@@ -1,11 +1,12 @@
 {
     "app":{
-        "app": {
+        "site": {
             "url": "http://shuttle.local",
-            "hash": {
-                "algo": "PASSWORD_BCRYPT",
-                "cost": 10
-            }
+            "version": "0.1"
+        },
+        "crypt": {
+            "algo": "PASSWORD_BCRYPT",
+            "cost": 10
         },
         "auth": {
             "session":  "user_id",
@@ -13,6 +14,7 @@
             "remember": "user_r"
         },
         "settings": {
+            "mode": "dev",
             "determineRouteBeforeAppMiddleware": false,
             "displayErrorDetails":               true,
             "view": {
@@ -23,6 +25,15 @@
                     "auto_reload":  true
                 }
             },
+            "mail": {
+                "transport": "mail",
+                "options": {
+                    "host": "localhost",
+                    "port": 25,
+                    "username": "",
+                    "password": ""
+                }
+            },
             "logger": {
                 "name":         "app",
                 "path":         "../storage/log/app.log"
@@ -30,8 +41,8 @@
             "database" : {
                 "driver":       "mysql",
                 "host":         "localhost",
-                "database":     "",
-                "username":     "",
+                "database":     "slim_project",
+                "username":     "root",
                 "password":     "",
                 "charset":      "utf8",
                 "collation":    "utf8_unicode_ci",
