@@ -13,7 +13,7 @@ scaffold tool, migrations, auth, Twig, Flash messages, eloquent ORM and Monolog.
 
 ### Create your project:
 
-    $ composer create-project -n -s dev mrcoco/slim3-eloquent-skeleton yourapp
+    $ composer create-project -n -s dev telekommander/shuttle yourapp
 
 ### ... or clone and run:
 
@@ -27,9 +27,8 @@ scaffold tool, migrations, auth, Twig, Flash messages, eloquent ORM and Monolog.
 
 1. `$ cd yourapp`
 2. Change database settings `config/config.json`
-3. `$ php phpmig migrate`
-4. `$ php -S 0.0.0.0:8888 -t web web/index.php`
-5. Browse to `http://localhost:8888` 
+3. `$ php -S 0.0.0.0:8888 -t web web/index.php`
+4. Browse to `http://localhost:8888` 
 or
 6. Browse to `http://localhost/yourapp/` without step 4 above
 
@@ -54,25 +53,6 @@ or
 * `app/src/Action/HomeController.php`: Action class for the home page
 * `app/src/Action/LoginControllerAction.php`: Action class for the login/logout page
 * `web/views/home.twig`: Twig template file for the home page
-
-#### CLI Tools
-* Currently there are 3 supported commands:
-* `php cli.php create:action MyActionClassName`
-* `php cli.php create:middleware MyMiddlewareClassName`
-* `php cli.php create:model MyModelClassName`
-* `php cli.php create:scaffold MyModuleName`
-
-
-#### Migration
-* Migrate all data: `php cli.php migrate`
-* Confirmation of status: `php cli.php status`
-* Creating migration file: `php cli.php generate [MigrationName]`
-* Execution of migration: `php cli.php migration`
-* I one back: `php cli.php rollback`
-* Return all: `php cli.php rollback -t 0`
-* Go back to the time of completion of the specified MigrationID: `php cli.php rollback -t [MigrationID]`
-* Only specified MigrationID the migration/roll back: `php cli.php [up | down] [MigrationID]`
-
 
 ##### Demo User:
 

@@ -27,16 +27,10 @@
         "phpmailer/phpmailer":          "^5.2",
         "monolog/monolog":              "^1.13",
         "illuminate/database":          "^5.1",
-        "davedevelopment/phpmig":       "^1.2",
         "alexgarrett/violin":           "^2.2",
         "illuminate/events":            "^5.2",
         "carlosocarvalho/simple-input": "^1.0",
         "maximebf/debugbar":            "^1.11",
         "swiftmailer/swiftmailer":      "^5.4"
-    },
-    "scripts": {
-        "post-update-cmd": [
-            "php cli.php migrate"
-        ]
     }
 }
