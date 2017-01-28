@@ -84,6 +84,7 @@ $container['errorHandler'] = function ($c) {
     };
 };
 
+// CSFR GUARD
 $container['csrf'] = function ($c) {
     $guard = new \Slim\Csrf\Guard();
     $guard->setFailureCallable(function ($request, $response, $next) {
@@ -124,8 +125,9 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
+// HASH
 $container['hash'] = function ($c) {
-    return new App\Helper\Hash($c->get('app'));
+    return new App\Helper\Hash($c->get('crypt'));
 };
 
 //SESSION
@@ -135,6 +137,13 @@ $container['session'] = function ($c) {
 
 $container['App\Controller\Admin'] = function ($c) {
     return new App\Controller\Admin($c->get('view'), $c->get('logger'), $c->get('session'));
+};
+
+// USER
+$container['user'] = function ($c) {
+    $acl = new \App\Helper\Acl();
+    $user= $acl->profile();
+    return $user;
 };
 
 // DEBBUGER

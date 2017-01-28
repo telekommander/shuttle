@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use MartynBiz\Slim3Controller\Controller;
 use Carlosocarvalho\SimpleInput\Input\Input;
 use App\Model\User;
 use App\Validation\Validator;
@@ -15,30 +14,32 @@ final class HomeController extends AbstractController
 {
     public function dispatch($request, $response, $params)
     {
+        // SAMPLE LOGGER OUTPUT
         $this->logger->info("Example Homepage action dispatched");
+        
         $acl        = new \App\Helper\Acl;
         return $this->view->render($response, "home.twig", [
-            'user'          => User::all(),
-            'currentuser'   => $acl->profile()
+            "user"          => User::all(),
+            "currentuser"   => $acl->profile()
         ]);
     }
 
-    public function dashboard()
+    public function dashboard($request, $response, $params)
     {
         $session    = new \App\Helper\Session;
-        $flash      = $session->get('flash');
-        return $this->render('dashboard.twig', ['flash' => $flash ] );
+        $flash      = $session->get("flash");
+        return $this->view->render($response, "dashboard.twig", ["flash" => $flash ] );
     }
 
-    public function register()
+    public function register($request, $response, $params)
     {
-        $return = $this->render('register.twig');
+        $return = $this->view->render($response, "register.twig");
         return $return;
     }
 
-    public function testJson($args)
+    public function testJson($request, $response, $params)
     {
-        $option   = [$args , "foo" => "bar"];
+        $option   = [$params , "foo" => "bar"];
         $response = $this->response
             ->withJson($option)
             ->withStatus(201);

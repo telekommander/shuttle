@@ -3,16 +3,16 @@
 $app->group("", function () use ($app) {
 
     $app->get("/", "App\\Controller\\HomeController:dispatch");
-//    $app->get("/dashboard", $controller("dashboard"));
-//    $app->get("/register", $controller("register"));
+    $app->get("/dashboard", "App\\Controller\\HomeController:dashboard");
+    $app->get("/register", "App\\Controller\\HomeController:register");
 //
-//    $app->get("/login", $login("login"));
-//    $app->get("/logout", $login("logout"));
+    $app->get("/login", "App\\Controller\\LoginController:login");
+    $app->get("/logout",  "App\\Controller\\LoginController:logout");
 //
-//    $app->post("/login", $login("loginPost"));
-//    $app->post("/register", $login("registerPost"));
+    $app->post("/login", "App\\Controller\\LoginController:loginPost");
+    $app->post("/register", "App\\Controller\\LoginController:registerPost");
 //
-//    $app->get("/testjson/[{option}]", $controller("testJson"));
+    $app->get("/testjson/[{option}]", "App\\Controller\\HomeController:testJson");
 
 });
 
