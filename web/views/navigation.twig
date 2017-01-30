@@ -4,8 +4,12 @@
         <ul class="dropdown menu" data-dropdown-menu>
             <li class="menu-text">SHUTTLE | Slim 3 Kickstart</li>
             <li><a href="{{ base_url() }}">Home</a></li>
-            <li><a href="login">Login</a></li>
-            <li><a href="register">Register</a></li>
+            {% if currentuser %}
+                <li><a href="logout">Logout</a></li>
+            {% else %}
+                <li><a href="login">Login</a></li>
+                <li><a href="register">Register</a></li>
+            {% endif %}
         </ul>
     </div>
 
