@@ -41,7 +41,7 @@
             "database" : {
                 "driver":       "mysql",
                 "host":         "localhost",
-                "database":     "slim_project",
+                "database":     "shuttle",
                 "username":     "root",
                 "password":     "",
                 "charset":      "utf8",
